@@ -1,5 +1,5 @@
-const authentication = (_, __, { dataSources }) => {
-  return dataSources.authenticationApi.getAuthentication('taehongkim');
+const authentication = async (_, __, { dataSources }) => {
+  return await dataSources.authenticationApi.getAuthentication('taehongkim');
 };
 
 const authenticationResolver = {

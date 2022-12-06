@@ -30,12 +30,19 @@ type Payment {
   type: String
 }
 
+type Total {
+  user: User
+  payment: Payment
+  authentication: Authentication
+}
+
 type Query {
   authentication: Authentication
   user: User
   users: [User]
   payment: Payment
   payments: [Payment]
+  total: Total
 }
 `;
 

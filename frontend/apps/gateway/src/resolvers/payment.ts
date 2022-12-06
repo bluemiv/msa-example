@@ -1,9 +1,9 @@
-const payment = (_, __, { dataSources }) => {
-  return dataSources.paymentApi.getPayment(1);
+const payment = async (_, __, { dataSources }) => {
+  return await dataSources.paymentApi.getPayment(1);
 };
 
-const payments = (_, __, { dataSources }) => {
-  return dataSources.paymentApi.getPayments();
+const payments = async (_, __, { dataSources }) => {
+  return await dataSources.paymentApi.getPayments();
 };
 
 const paymentResolver = {

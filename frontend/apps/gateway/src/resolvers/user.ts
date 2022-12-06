@@ -1,9 +1,9 @@
-const user = (_, __, { dataSources }) => {
-  return dataSources.userApi.getUser(1);
+const user = async (parent, __, { dataSources }) => {
+  return await dataSources.userApi.getUser(1);
 };
 
-const users = (_, __, { dataSources }) => {
-  return dataSources.userApi.getUsers();
+const users = async (_, __, { dataSources }) => {
+  return await dataSources.userApi.getUsers();
 };
 
 const userResolver = {

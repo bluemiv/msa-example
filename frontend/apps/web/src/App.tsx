@@ -3,6 +3,7 @@ import './App.css';
 import { FetchAndButton } from './features';
 import { useLazyQuery } from '@apollo/client';
 import { authenticationSchema, paymentSchema, userSchema } from './schema';
+import totalSchema from './schema/total';
 
 type TAuthentication = {
   username: string;
@@ -30,6 +31,8 @@ function App() {
 
   const [fetchPayment, fetchPaymentRes] = useLazyQuery(paymentSchema.FETCH_PAYMENT);
   const [fetchPayments, fetchPaymentsRes] = useLazyQuery(paymentSchema.FETCH_PAYMENTS);
+
+  const [fetchTotal, fetchTotalRes] = useLazyQuery(totalSchema.FETCH_TOTAL);
 
   return (
     <div className="App">
@@ -88,6 +91,15 @@ function App() {
             ))}
           </ul>
         )}
+      </FetchAndButton>
+      <FetchAndButton desc="모든 정보 한번에 불러오기" buttonLabel="모든 정보 가져오기" onClick={fetchTotal}>
+        {fetchTotalRes.loading
+          ? 'loading'
+          : [
+              `이름: ${fetchTotalRes.data?.total?.user?.username}`,
+              `결제한 금액: ${fetchTotalRes.data?.total?.payment?.price}`,
+              `Token: ${fetchTotalRes.data?.total?.authentication?.token}`,
+            ].join(' / ')}
       </FetchAndButton>
     </div>
   );
