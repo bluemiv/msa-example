@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { FetchAndButton } from './features';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FetchAndButton
+        desc="로그인을 하는 테스트"
+        buttonLabel="로그인"
+        onClick={() => console.log('click')}
+      ></FetchAndButton>
+      <FetchAndButton
+        desc="회원 정보를 가져오는 테스트"
+        buttonLabel="로그인"
+        onClick={() => console.log('click')}
+      ></FetchAndButton>
+      <FetchAndButton
+        desc="결제를 하는 테스트"
+        buttonLabel="로그인"
+        onClick={() => console.log('click')}
+      ></FetchAndButton>
     </div>
   );
 }
