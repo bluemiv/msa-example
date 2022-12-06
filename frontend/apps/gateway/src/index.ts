@@ -2,29 +2,29 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
 const typeDefs = `
-type Book {
-    title: String
-    author: String
+type User {
+  username: String
 }
+
 type Query {
-    books: [Book]
+  user: User
+  users: [User]
 }
 `;
 
-const books = [
+const users = [
   {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
+    username: 'taehongkim',
   },
   {
-    title: 'City of Glass',
-    author: 'Paul Auster',
+    username: 'bluemiv',
   },
 ];
 
 const resolvers = {
   Query: {
-    books: () => books,
+    user: () => users[0],
+    users: () => users,
   },
 };
 

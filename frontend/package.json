@@ -13,6 +13,9 @@
     "gateway": "yarn workspace @msa/gateway",
     "web": "yarn workspace @msa/web"
   },
+  "dependencies": {
+    "graphql": "^16.6.0"
+  },
   "devDependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.6",
