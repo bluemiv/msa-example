@@ -1,5 +1,5 @@
 import { RESTDataSource } from '@apollo/datasource-rest';
-import { User } from '../model/user';
+import { User } from '../model';
 
 class UserApiDataSource extends RESTDataSource {
   override baseURL = 'http://localhost:3003/api/v1/';

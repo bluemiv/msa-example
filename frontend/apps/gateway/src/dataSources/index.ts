@@ -1,13 +1,4 @@
 import UserApiDataSource from './userApiDataSource';
+import PaymentApiDataSource from './paymentApiDataSource';
 
-export interface TDataSources {
-  dataSources: {
-    userApi: UserApiDataSource;
-  };
-}
-
-const dataSources = {
-  UserApiDataSource,
-};
-
-export default dataSources;
+export { UserApiDataSource, PaymentApiDataSource };
