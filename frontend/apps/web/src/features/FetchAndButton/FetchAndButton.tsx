@@ -10,10 +10,10 @@ export interface FetchAndButtonProps {
 
 const FetchAndButton = ({ desc, buttonLabel, onClick, children }: FetchAndButtonProps) => {
   return (
-    <div>
-      <p>{desc}</p>
+    <div className="fetch-and-button">
+      <p className="desc">{desc}</p>
       <Button onClick={onClick}>{buttonLabel}</Button>
-      <div>{children}</div>
+      <div className="result">{children}</div>
     </div>
   );
 };

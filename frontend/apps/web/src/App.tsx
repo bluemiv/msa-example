@@ -35,7 +35,7 @@ function App() {
   const [fetchTotal, fetchTotalRes] = useLazyQuery(totalSchema.FETCH_TOTAL);
 
   return (
-    <div className="App">
+    <div className="container">
       <FetchAndButton desc="로그인을 하는 테스트" buttonLabel="로그인" onClick={fetchAuthentication}>
         {fetchAuthenticationRes.loading
           ? 'loading'
