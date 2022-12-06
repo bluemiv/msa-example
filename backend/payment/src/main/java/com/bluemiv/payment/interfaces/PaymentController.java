@@ -13,13 +13,13 @@ public class PaymentController {
 
     @GetMapping("payment/{id}")
     public @ResponseBody Payment payment(@PathVariable long id) {
-        log.debug("API: payment/" + id);
+        log.info("API: payment/" + id);
         return Payment.builder().id(id).price(10000).type("CREDIT_CARD").build();
     }
 
     @GetMapping("payments")
     public @ResponseBody ArrayList<Payment> payments() {
-        log.debug("API: payments");
+        log.info("API: payments");
         final ArrayList<Payment> payments = new ArrayList<>();
         payments.add(Payment.builder().id(1).price(10000).type("CREDIT_CARD").build());
         payments.add(Payment.builder().id(2).price(13000).type("CASH").build());

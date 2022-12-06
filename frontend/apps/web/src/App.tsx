@@ -2,7 +2,12 @@ import React from 'react';
 import './App.css';
 import { FetchAndButton } from './features';
 import { useLazyQuery } from '@apollo/client';
-import { paymentSchema, userSchema } from './schema';
+import { authenticationSchema, paymentSchema, userSchema } from './schema';
+
+type TAuthentication = {
+  username: string;
+  token: string;
+};
 
 type TUser = {
   id: number;
@@ -18,6 +23,8 @@ type TPayment = {
 };
 
 function App() {
+  const [fetchAuthentication, fetchAuthenticationRes] = useLazyQuery(authenticationSchema.FETCH_AUTH_TOKEN);
+
   const [fetchUser, fetchUserRes] = useLazyQuery(userSchema.FETCH_USER);
   const [fetchUsers, fetchUsersRes] = useLazyQuery(userSchema.FETCH_USERS);
 
@@ -26,7 +33,14 @@ function App() {
 
   return (
     <div className="App">
-      <FetchAndButton desc="로그인을 하는 테스트" buttonLabel="로그인" onClick={() => fetchUser()}></FetchAndButton>
+      <FetchAndButton desc="로그인을 하는 테스트" buttonLabel="로그인" onClick={fetchAuthentication}>
+        {fetchAuthenticationRes.loading
+          ? 'loading'
+          : [
+              `이름: ${fetchAuthenticationRes.data?.authentication?.username}`,
+              `토큰: ${fetchAuthenticationRes.data?.authentication?.token}`,
+            ].join(' / ')}
+      </FetchAndButton>
       <FetchAndButton desc="특정 회원 정보를 가져오는 테스트" buttonLabel="회원 정보 가져오기" onClick={fetchUser}>
         {fetchUserRes.loading
           ? 'loading'

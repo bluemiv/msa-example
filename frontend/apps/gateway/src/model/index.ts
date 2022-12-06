@@ -1,3 +1,8 @@
+export interface Authentication {
+  username: string;
+  token: string;
+}
+
 export interface User {
   id: number;
   username: string;

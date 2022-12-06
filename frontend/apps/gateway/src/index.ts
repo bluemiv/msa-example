@@ -1,17 +1,22 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import resolvers from './resolvers';
-import UserApiDataSource from './dataSources/userApiDataSource';
-import PaymentApiDataSource from './dataSources/paymentApiDataSource';
+import { UserApiDataSource, PaymentApiDataSource, AuthenticationApiDataSource } from './dataSources';
 
 export interface TDataSources {
   dataSources: {
+    authenticationApi: AuthenticationApiDataSource;
     userApi: UserApiDataSource;
     paymentApi: PaymentApiDataSource;
   };
 }
 
 const typeDefs = `
+type Authentication {
+  username: String
+  token: String
+}
+
 type User {
   id: ID
   username: String
@@ -26,6 +31,7 @@ type Payment {
 }
 
 type Query {
+  authentication: Authentication
   user: User
   users: [User]
   payment: Payment
@@ -45,6 +51,7 @@ const startServer = async () => {
       const { cache } = server;
       return {
         dataSources: {
+          authenticationApi: new AuthenticationApiDataSource({ cache }),
           userApi: new UserApiDataSource({ cache }),
           paymentApi: new PaymentApiDataSource({ cache }),
         },

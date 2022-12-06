@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/")
 public class AuthController {
 
-    @GetMapping("authenticate")
+    @GetMapping("authentication")
     public @ResponseBody AuthToken authorize(@RequestParam("username") String username) {
-        log.debug("/api/v1/authenticate / username: " + username);
+        log.info("/api/v1/authentication / username: " + username);
         return AuthToken.builder().token("F435SF5OI7JD5SIF6OH45DOI34H5D36SF46IOHDSFIOH").username(username).build();
     }
 
