@@ -1,5 +1,15 @@
 {
   "name": "@msa/gateway",
   "version": "1.0.0",
-  "packageManager": "yarn@3.3.0"
+  "main": "src/index.ts",
+  "packageManager": "yarn@3.3.0",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.2.2",
+    "graphql": "^16.6.0"
+  }
 }

@@ -10,8 +10,14 @@
     ]
   },
   "scripts": {
-    "gateway": "yarn workspace @msa/gatway",
+    "gateway": "yarn workspace @msa/gateway",
     "web": "yarn workspace @msa/web"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.6",
+    "prettier": "^2.8.0",
+    "typescript": "^4.9.3"
   },
   "license": "MIT",
   "packageManager": "yarn@3.3.0"
