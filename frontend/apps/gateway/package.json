@@ -6,9 +6,10 @@
   "type": "module",
   "scripts": {
     "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "start": "yarn compile && node --experimental-specifier-resolution=node ./dist/index.js"
   },
   "dependencies": {
+    "@apollo/datasource-rest": "^4.3.2",
     "@apollo/server": "^4.2.2",
     "axios": "^1.2.1"
   }
